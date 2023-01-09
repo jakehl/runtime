@@ -8,7 +8,7 @@ on:
 
 jobs:
   sync:
-    if: ${{ github.actor == 'MichalStrehovsky' }}
+    if: ${{ github.actor == 'jakehl' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
@@ -45,7 +45,7 @@ jobs:
       if: steps.branch_exists.outcome != 'success'
       uses: ./bflat/actions/pullrequest
       with:
-        auth_token: ${{ secrets.GITHUB_TOKEN }}
+        auth_token: ${{ secrets.PAT }}
         source_branch: merge-${{ github.event.inputs.branch }}
         target_branch: bflat-${{ github.event.inputs.branch }}
         pr_title: '[${{ github.event.inputs.branch }}] Merge from dotnet/runtime'
